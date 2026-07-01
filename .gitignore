@@ -1,0 +1,17 @@
+# Environments
+venv/
+env/
+.env
+
+# Cache and DB
+__pycache__/
+*.pyc
+.pytest_cache/
+chroma_db/
+
+# Models
+models/
+
+# Data
+data/raw/*
+!data/raw/.gitkeep

@@ -1,0 +1,9 @@
+sentence-transformers
+chromadb
+transformers
+torch
+accelerate
+pypdf
+python-docx
+python-dotenv
+pytest
