@@ -5,7 +5,7 @@ from utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-def ask_rag_assistant(query: str, chat_history: str = "") -> str:
+def ask_rag_assistant(query: str, chat_history: str = "", system_context: str = "") -> str:
     """
     The full RAG pipeline:
     1. Retrieve relevant chunks
@@ -16,11 +16,11 @@ def ask_rag_assistant(query: str, chat_history: str = "") -> str:
     
     # 1. Retrieve
     chunks = retrieve_relevant_chunks(query, n_results=3)
-    if not chunks:
+    if not chunks and not system_context:
         return "I don't have any relevant information in my database to answer this."
         
     # 2. Build Prompt
-    prompt = build_rag_prompt(query, chunks, chat_history)
+    prompt = build_rag_prompt(query, chunks, chat_history, system_context)
     
     # 3. Generate Answer
     answer = generate_answer(prompt)

@@ -11,7 +11,7 @@ def get_llm():
     pass
 
 
-def generate_answer(prompt: str) -> str:
+def generate_answer(prompt: str, format: str = None) -> str:
     """Send the prompt to the local Ollama API."""
     logger.info(f"Sending prompt to Ollama ({LLM_MODEL_NAME})...")
     
@@ -22,6 +22,8 @@ def generate_answer(prompt: str) -> str:
         "prompt": prompt,
         "stream": False
     }
+    if format == "json":
+        data["format"] = "json"
     
     req = urllib.request.Request(
         url, 

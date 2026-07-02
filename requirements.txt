@@ -7,3 +7,5 @@ pypdf
 python-docx
 python-dotenv
 pytest
+streamlit
+pydantic
